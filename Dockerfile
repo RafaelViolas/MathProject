@@ -1,14 +1,5 @@
 # Use the official Python image from the Docker Hub
-FROM python:3.9-slim
+FROM httpd:2.4
 
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the current directory contents into the container at /app
-COPY . /app
-
-# Expose port 7000 to the outside world
-EXPOSE 7000
-
-# Run server.py when the container launches
-CMD ["python", "server.py"]
+# Copy the contents of the 'static' directory to the Apache document root
+COPY webpage/ /usr/local/apache2/htdocs/
