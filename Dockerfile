@@ -12,4 +12,5 @@ COPY httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 
 # Enable the SSL module and update the main httpd configuration file to include the SSL configuration
 RUN sed -i '/LoadModule ssl_module/s/^#//g' /usr/local/apache2/conf/httpd.conf && \
-    echo "Include conf/extra/httpd-ssl.conf" >> /usr/local/apache2/conf/httpd.conf
+    echo "Include conf/extra/httpd-ssl.conf" >> /usr/local/apache2/conf/httpd.conf && \
+    echo "ServerName localhost" >> /usr/local/apache2/conf/httpd.conf
